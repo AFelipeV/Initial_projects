@@ -1,3 +1,4 @@
+import logging
 from utils import math_utils
 import sys
 
@@ -5,13 +6,18 @@ import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
+# Basic logging configuration
+logging.basicConfig(level=logging.INFO,
+                    format='%(asctime)s - %(levelname)s - %(message)s')
+
 
 def input_number_list():
     raw = input("Enter a list of numbers separeted by commas: ")
     try:
         return [float(x) if '.' in x else int(x) for x in raw.split(',')]
     except ValueError:
-        print("The list can only contain numbers separated by commas.")
+        logging.warning(
+            "The list can only contain numbers separated by commas.")
         return input_number_list()
 
 
@@ -19,11 +25,16 @@ def collect_numbers():
     x = int(input("Enter the number of values to add: "))
     values = []
     for i in range(x):
-        value = float(input("Enter a number: "))
-        values.append(value)
+        try:
+            value = float(input("Enter a number: "))
+            values.append(value)
+        except ValueError:
+            logging.error("Only numeric input is allowed.")
+            break
     return values
 
 
+logging.info("Program started. Showing options.")
 print("Options:")
 try:
     while True:
@@ -36,7 +47,7 @@ try:
         try:
             oper = int(input("Select the operation you want to perform: "))
         except ValueError:
-            print("Please select a valid option.")
+            logging.warning("Please select a valid option.")
             continue
         if oper == 1:
             numbers = collect_numbers()
@@ -51,9 +62,10 @@ try:
             result = math_utils.calculate_median(nums)
             print(f"the median is: {result}")
         elif oper == 4:
-            print("Exiting...")
+            logging.info("Exiting program.")
             break
         else:
-            print("Please select a valid option.")
+            logging.warning("Please select a valid option.")
 except KeyboardInterrupt:
+    logging.info("Program interrupted by user.")
     sys.exit("\nExiting...")

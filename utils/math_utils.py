@@ -1,14 +1,17 @@
+import logging
+
+
 def add_numbers(*numbers):
     """
-    Add two numbers, with a default value of y=10.
+    Add any number of values together.
 
     Args:
-        x (int or float): The first number.
-        y (int or float, optional): The second number. Defaults to 10.
+        Tuple of undefined amount of values.
 
     Returns:
-        int or float: The sum of the two numbers.
+        float: The sum of the given numbers.
     """
+    logging.debug(f"Adding numbers: {numbers}")
     return sum(numbers)
 
 
@@ -28,9 +31,10 @@ def calculate_mean(numbers_amount):
             value = float(input('Enter number '+str(i+1)+': '))
             total += value
         except ValueError:
-            print("Only numeric input is allowed.")
+            logging.error("Only numeric input is allowed.")
             break
-    return total/numbers_amount
+    mean = total/numbers_amount if numbers_amount else 0
+    return mean
 
 
 def calculate_median(list_of_numbers):
@@ -44,12 +48,16 @@ def calculate_median(list_of_numbers):
     """
     sorted_numbers = sorted(list_of_numbers)
     n = len(sorted_numbers)
+    if n == 0:
+        logging.warning("Empty list provided to calculate_median.")
+        return None
     if n % 2 == 0:
         lower_mid = sorted_numbers[n // 2 - 1]
         upper_mid = sorted_numbers[n//2]
-        return (lower_mid+upper_mid)/2
+        median = (lower_mid+upper_mid)/2
     else:
-        return sorted_numbers[n//2]
+        median = sorted_numbers[n//2]
+    return median
 
 
 if __name__ == "__main__":
