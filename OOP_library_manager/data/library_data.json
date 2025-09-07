@@ -1,0 +1,56 @@
+{
+  "books": [
+    {
+      "name": "The Great Gatsby",
+      "author": "Scott Fitzgerald",
+      "year": 1925,
+      "ISBN": "978-07-432-7356-5"
+    },
+    {
+      "name": "One Hundred Years of Solitude",
+      "author": "Gabriel García Márquez",
+      "year": 1967,
+      "ISBN": "978-3-16-148410-0"
+    },
+    {
+      "name": "Don Quixote",
+      "author": "Miguel de Cervantes",
+      "year": 1605,
+      "ISBN": "978-84-376-0494-7"
+    },
+    {
+      "name": "The Shadow of the Wind",
+      "author": "Carlos Ruiz Zafón",
+      "year": 2001,
+      "ISBN": "978-84-08-03794-2"
+    }
+  ],
+  "users": [
+    {
+      "name": "Ana",
+      "email": "ana@example.com"
+    },
+    {
+      "name": "Luis",
+      "email": "luis@example.com"
+    },
+    {
+      "name": "Mary",
+      "email": "mary@example.com"
+    }
+  ],
+  "employees": [
+    {
+      "name": "Peter",
+      "email": "peter@example.com",
+      "position": "Manager",
+      "id": 150
+    },
+    {
+      "name": "Margot",
+      "email": "margo@example.com",
+      "position": "Assistant",
+      "id": 120
+    }
+  ]
+}
