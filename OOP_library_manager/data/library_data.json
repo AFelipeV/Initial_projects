@@ -1,4 +1,18 @@
 {
+  "users": [
+    {
+      "name": "Ana",
+      "email": "ana@example.com"
+    },
+    {
+      "name": "Luis",
+      "email": "luis@example.com"
+    },
+    {
+      "name": "Mary",
+      "email": "mary@example.com"
+    }
+  ],
   "books": [
     {
       "name": "The Great Gatsby",
@@ -23,20 +37,12 @@
       "author": "Carlos Ruiz Zafón",
       "year": 2001,
       "ISBN": "978-84-08-03794-2"
-    }
-  ],
-  "users": [
-    {
-      "name": "Ana",
-      "email": "ana@example.com"
     },
     {
-      "name": "Luis",
-      "email": "luis@example.com"
-    },
-    {
-      "name": "Mary",
-      "email": "mary@example.com"
+      "name": "Anna Karenina",
+      "author": "Lev Tolstoi",
+      "year": 1878,
+      "ISBN": "978-848-428-8442"
     }
   ],
   "employees": [
